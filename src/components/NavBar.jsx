@@ -8,12 +8,8 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import ImgLogo from '../assets/logo.png';
 
 
 const pages = ['Inicio', 'Nosotros', 'Catálogo', 'Galería', 'Contacto'];
@@ -56,7 +52,7 @@ const NavBar = () => {
               color: 'inherit',
               textDecoration: 'none',
             }}>
-            <img src={ImgLogo} width="200px" loading="lazy" alt="Home Deco" sx={{display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+            <img src="/assets/logo.png" width="200px" loading="lazy" alt="Home Deco" sx={{display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -107,7 +103,7 @@ const NavBar = () => {
               color: 'inherit',
               textDecoration: 'none',
             }}>
-            <img src={ImgLogo} width="200px" loading="lazy" alt="Home Deco" sx={{display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+            <img src="/assets/logo.png" width="200px" loading="lazy" alt="Home Deco" sx={{display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
