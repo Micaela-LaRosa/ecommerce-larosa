@@ -18,7 +18,7 @@ export default function ItemDetailContainer() {
     )
 
     .then((response) => response.json())
-    .then ((data) => {setResultado(data)})
+    .then ((data) => {setResultado(data.find(e => e.id == id ))})
     .catch((e) => {
       console.log("salio mal")
     })
