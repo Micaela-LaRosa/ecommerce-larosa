@@ -1,38 +1,20 @@
 import React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import ItemCount from './ItemCount';
+import { Link } from 'react-router-dom';
+import './Item.css';
 
-export default function Item({producto}) {
-    const {title, description, price, pictureUrl} = producto
+export default function Item({id, title, description, price, pictureUrl, stock}) {
     return (
-            <Card style={{ width: '25rem', margin: 20 }}>
-                <CardActionArea>
-                    <CardMedia
-                    component="img"
-                    height="300"
-                    src={pictureUrl}
-                    alt={description}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {title}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            {description}
-                        </Typography>    
-                        <Typography variant="body2" color="text.secondary">    
-                            PRECIO: ${price}
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <Button size="medium" color="secondary">
-                        VER DETALLE
-                    </Button>
-                </CardActions>
-            </Card>
+        <div className='cardCss'>
+            <b className='centrado'>{title}</b>
+            <img src={pictureUrl} alt={description} width='150rem' />
+            <p className='centrado'>{description}</p>
+            <p>PRECIO: ${price}</p>
+            <button>
+            <Link className='btnAddCar' to={`/item/${id}`}>Ver mas detalles</Link>
+            </button>
+            <ItemCount stock={stock} initial={1} />
+            <p>Artículos Disponibles: {stock}</p>
+        </div>
     )
 }

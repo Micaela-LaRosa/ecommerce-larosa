@@ -1,40 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import ItemDetail from './ItemDetail';
+import { useParams } from 'react-router-dom';
 
 export default function ItemDetailContainer() {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [detalles, setDetalles] = useState({})
+
+  const [itemDet, itemDetailId] = useState()
+  const {id} = useParams()
 
   useEffect(() => {
-    const getItem = new Promise ((res, rej) =>{
-      setTimeout (() => {
-        res(
-            {id: 1, title:'LAMPARA', description:'lampara de escritorio led', price: 200, pictureUrl:'https://www.morph.com.ar/pub/media/catalog/product/cache/c249fbb42cf583b1a8cf6f6bd1b7b4b4/3/7/372322_a_lampmiacabnegro.jpg'},
-        );
-      }, 2000);
-    });
+    fetch('../../productos.json'
+      , {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      }
+    )
 
-    getItem
-    .then((result) => {
-      setDetalles(result);
-    })
-    .catch((error) => {
-      setError(false);
+    .then((response) => response.json())
+    .then ((data) => {itemDetailId(data.filter (prod => prod.id === id))})
+    .catch((e) => {
+      console.log("salio mal")
     })
     .finally(() => {
-      setLoading(false);
+      console.log("fin");
     });
-  }, []);
+  }, [id]);
 
 
   return (
-    <>
-      <ItemDetail detalles={detalles}/>
-      <div>
-        {loading && 'Loading...'}
-        {error && 'Error en el pago'}
-      </div>
-    </>
+    <div>
+      {itemDet && (itemDet.map((item) =>
+        <ItemDetail id={item.id} title={item.title} description={item.description} price={item.price} pictureUrl={item.pictureUrl} stock={item.stock} />))}
+    </div>
   );
 }

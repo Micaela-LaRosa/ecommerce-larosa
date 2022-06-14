@@ -1,0 +1,16 @@
+.navStyle{
+    background-color:black;
+}
+
+.nav-link{
+    color: white;
+    text-shadow: 1.5px 1.5px grey;
+    font-size: 1.1rem;
+}
+
+.nav-link:hover{
+    color: yellow;
+    text-shadow: 1.5px 1.5px grey;
+    font-size: 1.1rem;
+    transition: 2s all;
+}

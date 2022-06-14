@@ -1,0 +1,11 @@
+.carrito{
+    font-size: 0.8rem;
+    position:absolute;
+    background-color: rgb(204, 116, 0);
+    color: white;
+    padding: 0px 2px 0px 2px;
+    margin-left: 20px;
+    margin-top: 12px;
+    border: rgba(255, 255, 255, 0.445) 1px solid;
+    border-radius: 30px;
+}
