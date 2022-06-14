@@ -23,37 +23,19 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link to="/" className="nav-link active">
-                Inicio
+              <Link to="/category/suelo" className="nav-link active">
+                Suelo
               </Link>
             </li>
             <li className="nav-item dropdown">
-              <Link to="*" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Productos
+              <Link to="/category/pared" className="nav-link active">
+                Pared
               </Link>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                <Link to="/category/suelo" className="dropdown-item">
-                  Artículos de Suelo
-                </Link>
-                </li>
-                <li>
-                  <Link to="/category/escritorio" className="dropdown-item">
-                    Artículos de escritorio
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/category/pared" className="dropdown-item">
-                    Artículos de pared
-                  </Link>
-                </li>
-                <li>
-                <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <Link to="/" className="dropdown-item">Todos los artículos</Link>
-                </li>
-              </ul>
+            </li>
+            <li className="nav-item">
+              <Link to="/category/escritorio" className="nav-link active">
+                Escritorio
+              </Link>
             </li>
             <Link to="/nosotros/" className="nav-link">Nosotros</Link>
             <Link to="/contactanos/" className="nav-link">Contactanos</Link>

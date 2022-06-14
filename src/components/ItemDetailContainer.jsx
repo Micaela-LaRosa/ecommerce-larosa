@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 export default function ItemDetailContainer() {
 
-  const [itemDet, itemDetailId] = useState()
+  const [resultado, setResultado] = useState({})
   const {id} = useParams()
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function ItemDetailContainer() {
     )
 
     .then((response) => response.json())
-    .then ((data) => {itemDetailId(data.filter (prod => prod.id === id))})
+    .then ((data) => {setResultado(data)})
     .catch((e) => {
       console.log("salio mal")
     })
@@ -30,8 +30,7 @@ export default function ItemDetailContainer() {
 
   return (
     <div>
-      {itemDet && (itemDet.map((item) =>
-        <ItemDetail id={item.id} title={item.title} description={item.description} price={item.price} pictureUrl={item.pictureUrl} stock={item.stock} />))}
+        <ItemDetail resultado={resultado} />
     </div>
   );
 }

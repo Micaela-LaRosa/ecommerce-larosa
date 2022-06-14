@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function ItemDetail({id, title, description, price, pictureUrl, stock}) {
+export default function ItemDetail({resultado}) {
+    const {id, title, description, price, pictureUrl, stock} = resultado
     return (
         <div>
             <p><img src={pictureUrl} alt={description} width='150rem' /></p>
