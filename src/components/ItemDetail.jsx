@@ -7,14 +7,12 @@ export default function ItemDetail({resultado}) {
     console.log(resultado)
     const {id, title, description, price, pictureUrl, stock} = resultado
     const [count, setCount] =useState(1)
-    const [stockProd, setStockProd] = useState(stock)
     const[prodAgregados, setProdAgregados] = useState(0)
 
     function onAdd(){
-        if (stockProd - count >= 0){
+        if ((stock - count) >= 0){
             alert('Se agregaron ' + count + ' productos al carrito')
             setProdAgregados(count)
-            setStockProd(stockProd - count)
         } else{
             alert('No hay más stock')
         }
