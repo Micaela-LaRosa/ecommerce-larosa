@@ -30,7 +30,7 @@ export default function ItemDetailContainer() {
 
   return (
     <div>
-        <ItemDetail resultado={resultado} />
+        {resultado && <ItemDetail resultado={resultado} />}
     </div>
   );
 }

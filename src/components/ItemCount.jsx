@@ -1,27 +1,14 @@
-import { useState } from "react";
+import React from "react";
 
-
-export default function ItemCount({initial, stock, onAdd}) {
-    const [count, setCount] =useState(initial)
-    function sumar() {
-        if (count < stock) {
-        setCount (count + 1)
-        } else {
-            alert('No podes agregar más productos')
-        }
-        }
-        function restar() {
-            count > initial ? setCount (count - 1) : alert ('No podes quitar más productos')
-        }
-    function reset(){
-        setCount(initial)
-    } 
+export default function ItemCount({initial, stock, onAdd, restar, sumar, cantSelect}) {
+    
+    
     return (
         <div>
-            <h3>{count}</h3>
             <button onClick={sumar}>+</button>
-            <button onClick={() => {onAdd(count); reset()}}>Agregar al carrito</button>
+            <input value={cantSelect} />
             <button onClick={restar}>-</button>
+            <button onClick={onAdd}>Agregar al carrito</button>
         </div>
     )
 }
