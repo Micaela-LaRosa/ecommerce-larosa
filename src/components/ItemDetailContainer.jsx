@@ -1,36 +1,14 @@
-import React, { useState, useEffect } from 'react';
 import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
+import useItem from './useItem';
 
 export default function ItemDetailContainer() {
-
-  const [resultado, setResultado] = useState({})
-  const {id} = useParams()
-
-  useEffect(() => {
-    fetch('../../productos.json'
-      , {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-      }
-    )
-
-    .then((response) => response.json())
-    .then ((data) => {setResultado(data.find(e => e.id == id ))})
-    .catch((e) => {
-      console.log("salio mal")
-    })
-    .finally(() => {
-      console.log("fin");
-    });
-  }, [id]);
-
+  const {id} = useParams();
+  const { isLoading, item} = useItem(id);
 
   return (
     <div>
-        {resultado && <ItemDetail resultado={resultado} />}
+        {isLoading ? <h4>LOADING...</h4> : <ItemDetail product={item} />}
     </div>
   );
 }

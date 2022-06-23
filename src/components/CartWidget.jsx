@@ -1,14 +1,15 @@
-import React from 'react';
-import './CartWidget.css';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from './CartContext';
 
-export default function CartWidget({items}) {
+export default function CartWidget() {
+    const {getItemQty} = useContext(CartContext)
     return (
-        <div>
-            <span className="carrito">{items}</span>
-            <Link to={'/'}>
-                <img src="/assets/carrito.png" width="30px" className="imgCarrito" />
+        <>
+            <Link to={"/cart"}>
+                <img src="/assets/carrito.png" alt="carrito" width="30px" className="imgCarrito" />
+                <span className="badge badge-light">{getItemQty() > 0 && getItemQty()}</span>
             </Link>
-        </div>
-    )
+        </>
+    );
 }

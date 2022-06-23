@@ -1,12 +1,18 @@
 import React from 'react';
 import ItemList from './ItemList';
+import { useParams } from 'react-router-dom';
+import useProducts from './useProducts';
 
-export default function ItemListContainer({category}) {
+export default function ItemListContainer({greeting}) {
+  const {id} = useParams();
+  const {isLoading, items} = useProducts(id);
   return (
     <>
-      <h2>Bienvenido a la mejor página de decoración para el hogar!</h2>
-      <div>
-        <ItemList category={category} />
+      <div className='box container'>
+        <div className='row'>
+          <h4 className='mt-3'>{greeting}</h4>
+          {isLoading ? <h4>LOADING...</h4>: <ItemList items={items} />}
+        </div>
       </div>
     </>
   );

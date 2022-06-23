@@ -1,3 +1,4 @@
+export const products =
 [
     {
         "id": 1,
@@ -52,5 +53,23 @@
         "pictureUrl":"https://www.morph.com.ar/pub/media/catalog/product/cache/c249fbb42cf583b1a8cf6f6bd1b7b4b4/3/7/372918_a_decoceramicocalcareo25_4x25_4cm.jpg",
         "category":"pared",
         "stock": 17
+    },
+    {
+        "id": 7,
+        "title":"RELOJ RELIEVE",
+        "description":"reloj fondo negro para pared",
+        "price": 270,
+        "pictureUrl":"https://www.morph.com.ar/pub/media/catalog/product/cache/3c665109e8c252211eb6961f3195d97d/3/3/336788_a_relojformulang.jpg",
+        "category":"pared",
+        "stock": 21
+    },
+    {
+        "id": 8,
+        "title":"LAMPARA FANTASIA",
+        "description":"lampara recargable de mesa verde",
+        "price": 170,
+        "pictureUrl":"https://www.morph.com.ar/pub/media/catalog/product/cache/c249fbb42cf583b1a8cf6f6bd1b7b4b4/3/6/3698232_a_lampararecargabledemesaverde.jpg",
+        "category":"escritorio",
+        "stock": 11
     }
 ]

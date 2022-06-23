@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Item.css';
 
-export default function Item({id, title, description, price, pictureUrl, stock}) {
+export default function Item({producto}) {
+    const { id, title, price, description, pictureUrl } = producto;
     return (
-        <div className='cardCss'>
-            <b className='centrado'>{title}</b>
-            <img src={pictureUrl} alt={description} width='150rem' />
-            <p className='centrado'>{description}</p>
-            <p>PRECIO: ${price}</p>
-            <button>
-            <Link className='btnAddCar' to={`/item/${id}`}>Ver mas detalles</Link>
-            </button>
-            <p>Artículos Disponibles: {stock}</p>
+        <div className='col-lg-3 col-md-6 col-sm-12'>
+            <div className='card mt-3'>
+                <h5 className='card-title'>{title}</h5>
+                <img className='card-img-top' src={pictureUrl} alt={description} width='150px' />
+                <p className='card-text'>{description}</p>
+                <p className='card-text'>PRECIO: ${price}</p>
+                <button>
+                    <Link to={`/item/${id}`} className='btn btn-prymary'>Ver mas detalles</Link>
+                </button>
+            </div>
         </div>
     )
 }
