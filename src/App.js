@@ -7,20 +7,8 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart";
 import CartContext from "./components/CartContext";
-import { initializeApp } from "firebase/app";
 
 export default function App() {
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBp6NaUImyAk0WcGZvq7T4nE4R5POqN5rI",
-    authDomain: "ecommerce-larosa.firebaseapp.com",
-    projectId: "ecommerce-larosa",
-    storageBucket: "ecommerce-larosa.appspot.com",
-    messagingSenderId: "684681665339",
-    appId: "1:684681665339:web:c6d2a1722765d1b434b51e"
-  };
-  
-  initializeApp(firebaseConfig);
 
   return (
     <>
