@@ -11,6 +11,7 @@ export default function ItemDetail({product}) {
     function onAdd(quantityToAdd){
         alert(`Se han agregado: ${quantityToAdd} artículos`);
         setUnidades(quantityToAdd);
+        addItem(product, quantityToAdd)
     }
     return ( 
         <div className='container bg-light pb-3 box-1 mt-5'>
@@ -31,7 +32,12 @@ export default function ItemDetail({product}) {
                         <h3>Descripción: {product.description}</h3>
                     </div> 
                     <div className='text-center alert alert-info'>
-                        {unidades > 0 ? <div><Link to={'/cart'} onClick={()=>addItem(product,unidades)}>Finalizar mi compra</Link></div>:<ItemCount stock={product.stock} initial={1} onAdd={onAdd} />} 
+                        {unidades > 0 ? 
+                        <div>
+                            <p className='fw-bolder'>
+                                *Esta por comprar: Producto: {product.title} - Unidades: {" "}{unidades}
+                            </p>
+                            <Link to={'/cart'} className='btn btn-danger'>Finalizar mi compra</Link></div>:<ItemCount stock={product.stock} initial={1} onAdd={onAdd} />} 
                     </div>
                 </div>
             </div>
