@@ -3,7 +3,8 @@ import React, { useContext } from 'react';
 import { CartContext } from './CartContext'
 
 export default function Cart() {
-  const {cart, getItemPrice, emptyCart, deleteItem} = useContext(CartContext)
+  const {cart, getItemPrice, emptyCart, deleteItem} = useContext(CartContext);
+  const renderCarrito= () => {
   return (
     <>
     <div className='container'>
@@ -28,40 +29,53 @@ export default function Cart() {
               </th>
             </tr>
           </thead>
-        {cart?.map((item) => (
-          <>
-            <tbody key= {item.id}>
-              <tr key= {3}>
-                <th key= {4}>
+          <tbody>
+        {cart?.map((item, key) => (
+            <tr key= {key}>
+              <td>
                   {item.title}
-                </th>
-                <th key= {1}>
+                </td>
+                <td>
                   ${item.price}
-                </th>
-                <th key= {2}>
+                </td>
+                <td>
                   {item.quantity}
-                </th>
-                <th key= {5}>
+                </td>
+                <td>
                   ${item.quantity * item.price}
-                </th>
-                <th key= {6}>
+                </td>
+                <td>
                   <button className='btn btn-danger' onClick={()=>deleteItem(item.id)}>Quitar</button>
-                </th>
+                </td>
               </tr>
-            </tbody>
-          </>
         ))}
+        </tbody>
           <tfoot>
-            <tr>
-              <td className='h5 bg-warning'>Total: ${getItemPrice()}</td>
+            <tr style={{borderWidth: '0'}}>
+              <td colSpan={3}></td>
+              <td className='table-danger fw-bolder'>Total: ${getItemPrice()}</td>
             </tr>
           </tfoot>
         </table>
         <div class="btn-group" role="group" aria-label="Basic example">
-          <button className='btn btn-primary' onClick={()=>emptyCart()}>Vaciar</button>
-          <Link to={'/'} className='btn btn-success'>Seguir Comprando</Link>
+          <button className='btn btn-primary mt-3' onClick={()=>emptyCart()}>Vaciar</button>
+          <Link to={'/'} className='btn btn-success mt-3 mr-1'>Seguir Comprando</Link>
         </div>
       </div>
     </>
-  )
+  );
 }
+
+const renderItemVacios = () =>{
+return(
+  <div className='container mt-5'>
+    <h5 className='fs-5'>No hay elementos en el carrito</h5>
+    <Link to={'/'} className='btn btn-primary'>Volver al inicio</Link>
+  </div>
+)}
+
+return (
+  <>
+    {cart.length > 0 ? renderCarrito() : renderItemVacios()}
+  </>
+)}
