@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart";
 import CartContext from "./components/CartContext";
 import { initializeApp } from "firebase/app";
+import Checkout from "./components/Checkout";
 
 export default function App() {
   
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="category/:id" element={<ItemListContainer />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </CartContext>
       </BrowserRouter>

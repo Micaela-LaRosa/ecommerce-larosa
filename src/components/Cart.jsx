@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
-import { CartContext } from './CartContext'
+import { CartContext } from './CartContext';
 
 export default function Cart() {
   const {cart, getItemPrice, emptyCart, deleteItem} = useContext(CartContext);
@@ -60,6 +60,7 @@ export default function Cart() {
         <div class="btn-group" role="group" aria-label="Basic example">
           <button className='btn btn-primary mt-3' onClick={()=>emptyCart()}>Vaciar</button>
           <Link to={'/'} className='btn btn-success mt-3 mr-1'>Seguir Comprando</Link>
+          <Link to={'/checkout'} className="btn btn-danger mt-3 mr-1">Continuar para pagar</Link>
         </div>
       </div>
     </>
