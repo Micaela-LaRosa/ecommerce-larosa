@@ -1,0 +1,59 @@
+.containerBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comprar{
+    color: black;
+    font-weight: bold;
+    height: 2rem;
+    margin-bottom: 1rem;
+    background-color: rgb(81, 168, 81);
+    border: none;
+    cursor: pointer;
+    transition: .1s aese all;
+}
+
+.pagar{
+    color: black;
+    font-weight: bold;
+    height: 2rem;
+    margin-bottom: 1rem;
+    background-color: #dc79e1;
+    border: none;
+    cursor: pointer;
+    transition: .1s aese all;
+}
+
+.btnVaciar{
+    background-color: rgb(227, 227, 39);
+    font-weight: bold;
+}
+
+.btnVolver{
+    background-color: rgb(215, 136, 169);
+    font-weight: bold;
+}
+.btnVolver:hover{
+    background-color: black;
+    color: rgb(215, 136, 169);
+}
+
+@media only screen and (min-width: 600px){
+    .pagar{
+        height: 3rem;
+    }
+    .comprar{
+        height: 3rem;
+    }
+    .imgCarrito{
+        width: 30px;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    .imgCarrito{
+        width: 35px;
+    }
+}

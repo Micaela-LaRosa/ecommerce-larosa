@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useState} from 'react';
+import './ItemDetail.css';
 
 export default function ItemCount({initial, stock, onAdd}) {
     const [count, setCount] = useState(initial);
@@ -15,13 +16,13 @@ export default function ItemCount({initial, stock, onAdd}) {
     return (
     <>
         <div className='card-body'>
-            <h4>Stock disponible: {stock}</h4>
-            <h3>Cantidad seleccionada: {count}</h3>
-            <div className='btn-group' role='group' aria-label='basic example'>
-                <button className='btn btn-md btn-primary mt-1' onClick={restar}>-</button>
+            <h5 className='h5'>Stock disponible: {stock}</h5>
+            <h4 className='resaltado h5'>Cantidad seleccionada: {count}</h4>
+            <div className='btn-group countButton' role='group' aria-label='basic example'>
+                <button className='btn btn-md contador mt-1 h5' onClick={restar}>-</button>
                 <button disable={stock === 0 || count ===0}
-                className='btn btn-md btn-danger mt-1' onClick={()=>onAdd(count)}>Agregar al carrito</button>
-                <button className='btn btn-md btn-primary mt-1' onClick={sumar}>+</button>
+                className='btn btn-md agregar mt-1 h5' onClick={()=>onAdd(count)}>AGREGAR AL CARRITO</button>
+                <button className='btn btn-md contador mt-1 h5' onClick={sumar}>+</button>
             </div>
         </div>
     </>

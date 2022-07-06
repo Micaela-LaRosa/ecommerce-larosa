@@ -1,0 +1,37 @@
+.navBar{
+    background-color: black;
+    padding: 0px;
+    font-size: 12px;
+}
+
+.navbar-toggler-icon{
+    font-size: small;
+}
+
+@media only screen and (min-width: 600px){
+    .navBar{
+        font-size: 16px;
+    }
+
+    .navbar-toggler-icon{
+        font-size: medium;
+    }
+
+    .navbar-brand{
+        width: 8em;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    .navBar{
+        font-size: 20px;
+    }
+
+    .navbar-toggler-icon{
+        font-size: big;
+    }
+
+    .navbar-brand{
+        width: 10em;
+    }
+}

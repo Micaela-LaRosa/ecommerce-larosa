@@ -3,6 +3,7 @@ import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import './ItemListContainer.css';
 
 export default function ItemListContainer() {
   const {id} = useParams();
@@ -40,7 +41,7 @@ export default function ItemListContainer() {
   },[id]);
   return (
     <>
-      <div className='box container'>
+      <div className='box containerList'>
         <div className='row'>
           {isLoading ? <h4>LOADING...</h4>: <ItemList items={items} />}
         </div>

@@ -4,7 +4,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: pink;
+  position: relative;
+  padding-bottom: 20em;
+  min-height: 100vh;
 }
 
 code {
@@ -20,3 +22,6 @@ button{
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   background-color: whitesmoke;
 }
+
+
+

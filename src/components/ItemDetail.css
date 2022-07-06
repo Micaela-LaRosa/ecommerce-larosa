@@ -1,0 +1,75 @@
+.fondo {
+    background-color: grey;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgb(138, 134, 134);
+    width: 300px;
+    text-align: center;
+}
+
+.itemCard{
+    width: 200px;
+}
+
+.title {
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.resaltado {
+    background-color: rgb(209, 193, 196);
+    border-style: outset;
+}
+
+.finalizar{
+    background-color: rgb(81, 168, 81);
+    border-radius: 10px;
+    font-weight: bold;
+    border: 2px solid green;
+}
+
+.finalizar:hover{
+    color:rgb(10, 242, 99);
+}
+
+.agregar {
+    background-color: rgb(225, 166, 202);
+    font-weight: bold;
+    color: black
+}
+
+.contador {
+    color: white;
+    font-weight: bolder;
+    background-color: rgb(90, 8, 98);
+}
+
+.h5 {
+    font-size: 12px;
+}
+
+@media only screen and (min-width: 600px){
+    .itemCard{
+        width: 400px;
+    }
+    .fondo{
+        width: 500px;
+    }
+    .title{
+        font-size: 16px;
+    }
+    .h5{
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    .title{
+        font-size: 24px;
+    }
+    .h5{
+        font-size: 18px;
+    }
+    .countButton{
+        margin-top: 1em;
+    }
+}

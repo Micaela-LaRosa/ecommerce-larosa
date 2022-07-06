@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import {Link} from 'react-router-dom';
 
-export default function Categories() {
+export default function Categories(setExpanded) {
     const [category, setCategory] = useState([]);
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export default function Categories() {
     return (
         <>
             { category.map((el) => ( <li className="nav-item" key={el}>
-                <Link className="nav-link" to={'/category/' + el}>{el.charAt(0).toUpperCase()+ el.slice(1)}</Link></li>
+                <Link className="nav-link" to={'/category/' + el} onClick={()=> setExpanded(false)}>{el.charAt(0).toUpperCase()+ el.slice(1)}</Link></li>
             ))}
         </>
     );

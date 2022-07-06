@@ -2,6 +2,7 @@ import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import './ItemDetailContainer.css';
 
 export default function ItemDetailContainer() {
   const {id} = useParams();

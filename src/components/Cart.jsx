@@ -1,82 +1,70 @@
-import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
 import { CartContext } from './CartContext';
+import { Link } from 'react-router-dom';
+import './Cart.css';
 
 export default function Cart() {
   const {cart, getItemPrice, emptyCart, deleteItem} = useContext(CartContext);
-  const renderCarrito= () => {
+  const cartRender= () => {
   return (
     <>
     <div className='container'>
-        <h3>Carrito</h3>
-        <table className='table'>
-          <thead className='table-info'>
-            <tr>
-              <th >
-                Producto
-              </th>
-              <th>
-                  Precio
-              </th>
-              <th>
-                Cantidad
-              </th>
-              <th>
-                SubTotal
-              </th>
-              <th>
-                Acciones
-              </th>
+        <h3 className='mt-3 h5'><u>Compras:</u></h3>
+        <table className='table table-striped table-hover mt-5'>
+          <thead>
+            <tr className='h5'>
+              <th scope='col'>Producto</th>
+              <th scope='col'>Precio</th>
+              <th scope='col'>Cantidad</th>
+              <th scope='col'>SubTotal</th>
+              <th scope='col'>Quitar producto</th>
             </tr>
           </thead>
           <tbody>
         {cart?.map((item, key) => (
-            <tr key= {key}>
+            <tr className='h5' key= {key}>
+              <td>{item.title}</td>
+              <td>${item.price}</td>
+              <td>{item.quantity}</td>
+              <td>${item.quantity * item.price}</td>
               <td>
-                  {item.title}
-                </td>
-                <td>
-                  ${item.price}
-                </td>
-                <td>
-                  {item.quantity}
-                </td>
-                <td>
-                  ${item.quantity * item.price}
-                </td>
-                <td>
-                  <button className='btn btn-danger' onClick={()=>deleteItem(item.id)}>Quitar</button>
-                </td>
-              </tr>
+                <button className='btn btn-danger h5' onClick={()=>deleteItem(item.id)}>X</button>
+              </td>
+            </tr>
         ))}
         </tbody>
           <tfoot>
             <tr style={{borderWidth: '0'}}>
               <td colSpan={3}></td>
-              <td className='table-danger fw-bolder'>Total: ${getItemPrice()}</td>
+              <td className='table-danger fw-bolder h5'>Total: ${getItemPrice()}</td>
+            </tr>
+            <tr>
+              <td colSpan={4}></td>
+              <td>
+                <button className='btn btn-sm mt-3 btnVaciar h5' onClick={() => emptyCart()}>VACIAR</button>
+              </td>
             </tr>
           </tfoot>
         </table>
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button className='btn btn-primary mt-3' onClick={()=>emptyCart()}>Vaciar</button>
-          <Link to={'/'} className='btn btn-success mt-3 mr-1'>Seguir Comprando</Link>
-          <Link to={'/checkout'} className="btn btn-danger mt-3 mr-1">Continuar para pagar</Link>
+        <div class='btn-group containerBtn' role='group'>
+          <Link to={'/'}><button className='comprar btn mt-1 mr-1 h5'>SEGUIR COMPRANDO</button></Link>
+          <Link to={'/checkout'}><button className='pagar btn mt-1 mr-1 h5'>CONTINUAR AL PAGO</button></Link>
         </div>
       </div>
     </>
   );
 }
 
-const renderItemVacios = () =>{
+const itemRender = () =>{
 return(
   <div className='container mt-5'>
-    <h5 className='fs-5'>No hay elementos en el carrito</h5>
-    <Link to={'/'} className='btn btn-primary'>Volver al inicio</Link>
+    <h5 className='h5 mb-5'>No hay elementos en el carrito</h5>
+    <Link to={'/'} className='btn btnVolver h5'>VOLVER AL INICIO</Link>
   </div>
 )}
 
 return (
   <>
-    {cart.length > 0 ? renderCarrito() : renderItemVacios()}
+    {cart.length > 0 ? cartRender() : itemRender()}
   </>
 )}
