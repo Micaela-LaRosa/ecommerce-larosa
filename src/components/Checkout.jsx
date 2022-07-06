@@ -40,17 +40,6 @@ export default function Checkout() {
         });
     }
 
-    if (cart.length === 0) {
-        return (
-            <div>
-                <h1>Tu carro está vacío</h1>
-                <Link to='/cart'>
-                    <button>Volver al carrito</button>
-                </Link>
-            </div>
-        );
-    }
-
     const renderForm = () => {
     return (
         <div className='container mt-5'>
