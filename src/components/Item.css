@@ -18,6 +18,7 @@
 .btnVer{
     border-radius: 8px;
     font-weight: bold;
+    font-size: 12px;
     background-color: rgb(187, 179, 179);
     border-style: 2px solid;
     box-sizing: border-box;
@@ -49,6 +50,9 @@
     }
     .card-title{
         font-size: medium;
+    }
+    .btnVer{
+        font-size: 16px;
     }
 }
 

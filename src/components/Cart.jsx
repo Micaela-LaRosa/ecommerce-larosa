@@ -9,7 +9,7 @@ export default function Cart() {
   return (
     <>
     <div className='container'>
-        <h3 className='mt-3 h5'><u>Compras:</u></h3>
+        <h3 className='mt-3 h5'><u>Tus compras:</u></h3>
         {getItemQty() > 0 ?
         <table className='table table-striped table-hover mt-5'>
           <thead>
@@ -43,20 +43,20 @@ export default function Cart() {
               <td colSpan={4}></td>
               <td>
                 <button className='btn btn-sm mt-3 btnVaciar h5' onClick={() => emptyCart()}>VACIAR</button>
-                <Link to={'/checkout'}><button className='pagar btn mt-1 mr-1 h5'>CONTINUAR AL PAGO</button></Link>
-                <Link to={'/'}><button className='comprar btn mt-1 mr-1 h5'>SEGUIR COMPRANDO</button></Link>
               </td>
             </tr>
+            <div className='container containerBtn'>
+              <Link to={'/checkout'}><button className='pagar btn mt-1 mr-1 h5'>CONTINUAR AL PAGO</button></Link>
+              <Link to={'/'}><button className='comprar btn mt-1 mr-1 h5'>SEGUIR COMPRANDO</button></Link>
+            </div>
           </tfoot>
         </table>
-
-    :
-
-  <div className='container mt-5'>
-    <h5 className='h5 mb-5'>No hay elementos en el carrito</h5>
-    <Link to={'/'} className='btn btnVolver h5'>VOLVER AL INICIO</Link>
-  </div>
-} </div>
-</>
-  )
-}
+        :
+      <div className='container mt-5'>
+        <h5 className='h5 mb-5'>No hay elementos en el carrito</h5>
+        <Link to={'/'} className='btn btnVolver h5'>VOLVER AL INICIO</Link>
+      </div>
+      } 
+    </div>
+  </>
+)};

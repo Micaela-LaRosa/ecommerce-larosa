@@ -20,8 +20,7 @@ export default function ItemCount({initial, stock, onAdd}) {
             <h4 className='resaltado h5'>Cantidad seleccionada: {count}</h4>
             <div className='btn-group countButton' role='group' aria-label='basic example'>
                 <button className='btn btn-md contador mt-1 h5' onClick={restar}>-</button>
-                <button disable={stock === 0 || count ===0}
-                className='btn btn-md agregar mt-1 h5' onClick={()=>onAdd(count)}>AGREGAR AL CARRITO</button>
+                <button disable={stock === 0 || count ===0} className='btn btn-md agregar mt-1 h5' onClick={()=>onAdd(count)}>AGREGAR AL CARRITO</button>
                 <button className='btn btn-md contador mt-1 h5' onClick={sumar}>+</button>
             </div>
         </div>

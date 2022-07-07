@@ -6,7 +6,7 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './components/Cart';
-import CartContext from './components/CartContext';
+import MyProvider from './components/CartContext';
 import { initializeApp } from 'firebase/app';
 import Checkout from './components/Checkout';
 import Footer from './components/Footer';
@@ -27,7 +27,7 @@ export default function App() {
   return (
     <>
       <BrowserRouter>
-      <CartContext>
+      <MyProvider>
         <NavBar /> 
         <Routes>
           <Route path='/' element={<ItemListContainer />} />
@@ -37,7 +37,7 @@ export default function App() {
           <Route path='/checkout' element={<Checkout />} />
         </Routes>
         <Footer />
-      </CartContext>
+      </MyProvider>
       </BrowserRouter>
     </>
   );

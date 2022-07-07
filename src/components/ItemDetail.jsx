@@ -27,9 +27,9 @@ export default function ItemDetail({product}) {
                 <div className='col-lg-6 col-sm-12 mt-3 fondo'>
                     <div className='alert'>
                         <ul>
-                        <li className='h5 text-start'><u>Producto:</u> {product.title}</li>
-                        <li className='h5 text-start'><u>Categoria:</u> {product.category}</li>
-                        <li className='h5 text-start'><u>Precio:</u> ${product.price}</li>
+                            <li className='h5 text-start'><u>Producto:</u> {product.title}</li>
+                            <li className='h5 text-start'><u>Categoria:</u> {product.category}</li>
+                            <li className='h5 text-start'><u>Precio:</u> ${product.price}</li>
                         </ul>
                     </div>
                     <div className='alert' role='alert'>
@@ -43,9 +43,8 @@ export default function ItemDetail({product}) {
                                 *Esta por comprar: Producto: {product.title} - Unidades: {" "}{unidades}
                             </p>
                             <Link to={'/cart'} className='btn finalizar h5'>FINALIZAR COMPRA</Link></div>:<ItemCount stock={product.stock} initial={1} onAdd={onAdd} />} 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
+        )};
